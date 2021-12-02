@@ -1,0 +1,56 @@
+body {
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 500%;
+    background-color: darkgray;
+}
+div {
+    padding: 20px;
+}
+
+img {
+    margin-top: 40px;
+    width: 10vw;
+    padding: 40px;
+    border: 3px solid black;
+    border-radius: 100%;
+}
+
+#retry {
+    display: none;
+}
+
+#game {
+    margin: auto;
+    width: 50vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.letter {
+    padding: 10px;
+    border-bottom: 2px solid black;
+}
+
+#play {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vw;
+}
+
+input {
+    font-size: 50px;
+    padding: 5px;
+    border-radius: 30%;
+    text-align: center;
+}
+
+button {
+    font-size: 50px;
+    padding: 25px;
+    border-radius: 100%;
+}
