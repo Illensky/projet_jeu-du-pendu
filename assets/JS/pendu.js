@@ -64,10 +64,10 @@ function displayWord(word) {
 function check() {
     info.innerHTML = ""
     if (actualWord.includes(input.value.toLowerCase()) && input.value.length === 1 && !goodLetterGiven.includes(input.value.toUpperCase())) {
+        goodLetterGiven.push(input.value.toUpperCase())
         for (let i = 1; i < actualWord.length-1; i++) {
             if (input.value.toLowerCase() === actualWord[i]) {
                 document.getElementById(i.toString()).innerHTML = actualWord[i].toUpperCase();
-                goodLetterGiven.push(actualWord[i].toUpperCase())
                 tryedLetter.innerHTML = "Lettres déjà proposée : " + goodLetterGiven.join(", ") + ", " + wrongLetterGiven.join(", ")
                 goodLetter++;
                 if (goodLetter >= actualWord.length) {
@@ -102,7 +102,7 @@ function loose() {
     validButton.style.display = "none";
     retryButton.style.display = "inline";
     info.innerHTML = ""
-    looseOrWin.innerHTML = "C'est perdu !<br> Le mot etait " + actualWord + ".";
+    looseOrWin.innerHTML = "C'est perdu !<br> Le mot était " + actualWord + ".";
 }
 
 function retry() {
@@ -112,6 +112,7 @@ function retry() {
     error = 1;
     goodLetter = 2;
     goodLetterGiven = [];
+    wrongLetterGiven = [];
     hanged.src = "assets/img/1.jpg"
     tryedLetter.innerHTML = ""
     displayWord(getRandomWord())
