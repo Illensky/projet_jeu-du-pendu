@@ -1,27 +1,3 @@
-const words = [
-    "test",
-    "apocalypse",
-    "dictionnaire",
-    "pendu",
-    "jeu",
-    "yahourt",
-    "chien",
-    "chat",
-    "anticonstitutionnellement",
-    "anaconda",
-    "foret",
-    "france",
-    "italie",
-    "fourmies",
-    "paris",
-    "tasse",
-    "pizza",
-    "kebab",
-    "friterie",
-    "catholique",
-    "église",
-]
-
 const validButton = document.querySelector("#valid");
 const retryButton = document.querySelector("#retry");
 const hanged = document.querySelector("#hanged");
@@ -31,19 +7,21 @@ const looseOrWin = document.querySelector("#looseOrWin");
 const input = document.querySelector("#input");
 const tryedLetter = document.querySelector("#tryedLetter");
 
-let actualWord;
+let actualWord = "test";
 let error = 1;
 let goodLetter = 2;
 let goodLetterGiven = [];
 let wrongLetterGiven = [];
 
 function getRandomWord() {
-    const random = Math.floor(Math.random() * words.length)
-    actualWord = words[random]
-    return actualWord
+    fetch("https://random-word-api.herokuapp.com/word?number=1")
+        .then(res=>res.json())
+        .then(data=> displayWord(data[0]))
 }
 
+
 function displayWord(word) {
+    actualWord = word;
     let idNumber = 0;
     game.innerHTML = ""
     for (const letter of word) {
@@ -115,10 +93,10 @@ function retry() {
     wrongLetterGiven = [];
     hanged.src = "assets/img/1.jpg"
     tryedLetter.innerHTML = ""
-    displayWord(getRandomWord())
+    getRandomWord()
 }
 
-displayWord(getRandomWord())
+getRandomWord()
 
 validButton.addEventListener("click", check);
 retryButton.addEventListener("click", retry)
