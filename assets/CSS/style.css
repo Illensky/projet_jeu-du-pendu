@@ -3,7 +3,6 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-size: 500%;
     background-color: darkgray;
 }
 div {
@@ -12,7 +11,7 @@ div {
 
 img {
     margin-top: 40px;
-    width: 10vw;
+    width: 20vw;
     padding: 40px;
     border: 3px solid black;
     border-radius: 100%;
@@ -43,7 +42,7 @@ img {
 }
 
 input {
-    font-size: 50px;
+    font-size: 4rem;
     padding: 5px;
     border-radius: 30%;
     text-align: center;
@@ -53,4 +52,19 @@ button {
     font-size: 50px;
     padding: 25px;
     border-radius: 100%;
+}
+
+@media screen and (max-width: 510px) {
+
+    div {
+        padding: 4rem;
+    }
+
+    input {
+        font-size: 2rem;
+    }
+
+    #game {
+        flex-wrap: wrap;
+    }
 }
